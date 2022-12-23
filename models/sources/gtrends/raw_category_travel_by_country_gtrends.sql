@@ -5,5 +5,4 @@ SELECT
     time,
     gprop AS source,
     category
-  
 from {{ source('imports','countries_v2') }}
