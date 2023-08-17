@@ -29,3 +29,10 @@ sources:
         description: gtrends countries
       - name: country_codes
         description: country_codes for enrichment
+
+  - name: source_us
+    description: source_us dataset
+    database: chulupi
+    tables:
+      - name: dummy_data_nestle
+        description: gtrends countries
