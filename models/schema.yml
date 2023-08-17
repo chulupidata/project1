@@ -27,3 +27,5 @@ sources:
     tables:
       - name: countries_v2
         description: gtrends countries
+      - name: country_codes
+        description: country_codes for enrichment
