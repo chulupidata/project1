@@ -35,4 +35,4 @@ sources:
     database: chulupi
     tables:
       - name: dummy_data_nestle
-        description: gtrends countries
+        description: Dummy data Nestle company
