@@ -1,0 +1,31 @@
+version: 2
+models:
+  - name: test1
+    columns:
+      - name: text_field
+        tests:
+          - unique
+          - string_not_empty
+          - not_null
+          - accepted_values:
+              values: ['a','b']
+          - relationships:
+              to: ref('test2')
+              field: text_field
+
+
+sources:
+  - name: FACEBOOK
+    description: "{{ doc ('statuscd') }}"
+    database: chulupi
+    schema: FACEBOOK
+    freshness:
+      warn_after: {count: 1, period: day}
+      error_after: {count: 3, period: day}
+    loaded_at_field: ingest_jobtaskcmd_timestamp
+
+
+    tables:
+      - name: insights2
+        identifier: DL_ADS_INSIGHTS
+        description: Standard Facebook metrics report.
