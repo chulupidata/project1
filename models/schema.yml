@@ -38,6 +38,9 @@ sources:
         description: Dummy data Nestle company
       - name: deal_pipeline_stages
         description: Table containing information about deals in the Accredible CRM.
+        columns:
+          - name: deal_id
+            description: "Unique identifier assigned to each deal in a pipeline."
 
 
       - name: deals
@@ -45,6 +48,9 @@ sources:
         columns:
           - name: deal_id
             description: "Unique identifier assigned to each deal in a pipeline."
+            tests:
+                - unique
+                - not_null
           - name: pipeline_id
             description: "Identifier of the pipeline."
           - name: pipeline_name
@@ -59,3 +65,8 @@ sources:
             description: "Timestamp at which a deal has been closed."
           - name: deal_source_type
             description: "Channel from which a deal was sourced."
+        freshness:
+          warn_after: {count: 1, period: day}
+          error_after: {count: 99, period: day}
+        loaded_at_field: created_at
+
