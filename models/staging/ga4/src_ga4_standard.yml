@@ -1,0 +1,11 @@
+version: 2
+
+sources:
+  - name: imports
+    description: Imports dataset
+    database: chulupi
+    tables:
+      - name: company12
+        description: gtrends countries
+
+#https://courses.getdbt.com/courses/take/fundamentals/lessons/30144737-documenting-sources

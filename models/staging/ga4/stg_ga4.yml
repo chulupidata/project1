@@ -1,0 +1,11 @@
+version: 2 #https://courses.getdbt.com/courses/take/fundamentals/lessons/30144627-overview-of-an-exemplar-project
+models:
+  - name: stg_ga4_conversions
+    description: Staged conversion data.
+    columns:
+      - name: customer_id
+        description: The primary key for customers. '{{doc("order_status")}}'
+        tests:
+          - unique
+          - not_null
+#shortcuts __
